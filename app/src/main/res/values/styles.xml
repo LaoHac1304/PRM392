@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="the_winner">
+        <item name="android:textSize">39sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:fontFamily">@font/pixellari</item>>
+    </style>
+
+    <style name="tabel_coin">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:fontFamily">@font/pixellari</item>
+    </style>
+
+
+
+</resources>

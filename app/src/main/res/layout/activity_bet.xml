@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/betscreen"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/upheavtt"
+        android:text="Bet spaceSHIP"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/upheavtt"
+            android:text="Your coin: "
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/btnCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/upheavtt"
+            android:text="100"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/pixellari"
+        android:lineHeight="22sp"
+        android:text="Spaceships that are not filled with coins will be considered no bets"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textFontWeight="500"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/spacecraft1"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="12"
+        app:flow_horizontalGap="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            app:srcCompat="@drawable/onefire" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="65dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/pixellari"
+                android:gravity="center"
+                android:text="Coin:"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etBet1"
+                android:layout_width="202dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:fontFamily="@font/pixellari"
+                android:hint="0"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/spacecraft2"
+        android:layout_width="352dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="12"
+        app:flow_horizontalGap="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/spacecraft1"
+        app:layout_constraintTop_toBottomOf="@+id/spacecraft1">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            app:srcCompat="@drawable/twofire" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="59dp"
+                android:layout_height="45dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="center"
+                android:lineHeight="22sp"
+                android:text="Coin:"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etBet2"
+                android:layout_width="202dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="0"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:fontFamily="@font/pixellari"
+
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/spacecraft3"
+        android:layout_width="352dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:weightSum="12"
+        app:flow_horizontalGap="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spacecraft2"
+        app:layout_constraintTop_toBottomOf="@+id/spacecraft2">
+
+        <ImageView
+            android:id="@+id/imageView43"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            app:srcCompat="@drawable/threefire" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView345"
+                android:layout_width="63dp"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/pixellari"
+                android:gravity="center"
+                android:lineHeight="22sp"
+                android:text="Coin:"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etBet3"
+                android:layout_width="202dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:hint="0"
+                android:fontFamily="@font/pixellari"
+
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="320dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/upheavtt"
+        android:text="RETURN HOME"
+        android:textSize="22sp"
+        app:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/spacecraft3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnStart"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+
+    <Button
+        android:id="@+id/btnStart"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="320dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/upheavtt"
+        android:text="START"
+        android:textSize="22sp"
+        app:backgroundTint="#FF910F"
+        app:layout_constraintEnd_toEndOf="@+id/spacecraft3"
+        app:layout_constraintStart_toStartOf="@+id/spacecraft3"
+        app:layout_constraintTop_toBottomOf="@+id/spacecraft3" />
+
+    <TextView
+        android:id="@+id/txtError"
+        android:layout_width="345dp"
+        android:layout_height="24dp"
+        android:textSize="18dp"
+        android:text=""
+        android:textColor="#FF33"
+        android:fontFamily="@font/pixellari"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spacecraft3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

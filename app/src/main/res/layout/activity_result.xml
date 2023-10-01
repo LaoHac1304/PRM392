@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity"
+    android:background="@drawable/resultscreen">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="583dp"
+        android:layout_marginStart="35dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnBet"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="#FF910F"
+            android:text="@string/bet_again"
+            android:textSize="23sp"
+            android:fontFamily="@font/upheavtt"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="24dp">
+        </Space>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnHome"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@drawable/transparent_button"
+            android:textSize="23sp"
+            android:fontFamily="@font/upheavtt"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:text="@string/return_home"
+            app:strokeWidth="2dp"
+            app:strokeColor="#FFFFFF"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="324dp"
+        android:layout_height="232dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="310dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="54dp"
+        android:paddingVertical="32dp"
+        android:background="@drawable/tabel"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_tall_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/tvCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:text="Your coin: 100 coins"
+            android:textAppearance="@style/tabel_coin"
+            android:gravity="top"
+            />
+
+        <TextView
+            android:id="@+id/tvReward"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:text="Reward: 10 coins"
+            android:textAppearance="@style/tabel_coin"
+            android:gravity="top"
+            />
+
+        <TextView
+            android:id="@+id/tvLose"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:text="Lose: 80 coins"
+            android:textAppearance="@style/tabel_coin"
+            android:gravity="top"
+            />
+        <View
+            android:id="@+id/line_2"
+            android:layout_width="216dp"
+            android:layout_height="3dp"
+            android:background="@drawable/line_2"
+            />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:text="Total: 30 coins"
+            android:textAppearance="@style/tabel_coin"
+            android:gravity="top"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="200dp"
+        android:layout_height="209dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_tall_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivWinner"
+            android:layout_width="144dp"
+            android:layout_height="149dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/twofirewin" />
+
+
+        <TextView
+            android:id="@+id/tvWinner"
+            android:layout_width="200dp"
+            android:layout_height="44dp"
+            android:gravity="top"
+            android:text="@string/the_winner"
+            android:textAppearance="@style/the_winner" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

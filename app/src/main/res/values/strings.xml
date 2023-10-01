@@ -1,0 +1,9 @@
+<resources>
+    <string name="the_winner">
+    The winner
+    </string>
+    <string name="app_name">Result</string>
+    <string name="your_coin_1" />
+    <string name="bet_again">BET AGAIN</string>
+    <string name="return_home">RETURN HOME</string>
+</resources>

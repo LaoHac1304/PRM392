@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <TextView
+            android:fontFamily="@font/upheavtt"
+            android:id="@+id/textViewCoin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="COINS: 100"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:textSize="30dp" />
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:rotation="270"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <SeekBar
+                android:id="@+id/imageViewBet1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="10dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:focusable="false"
+                android:progress="10"
+                android:progressDrawable="@drawable/transparent_progress"
+                android:thumb="@drawable/bet1" />
+
+            <SeekBar
+                android:id="@+id/imageViewBet2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="10dp"
+                android:layout_weight="1"
+                android:progress="10"
+                android:progressDrawable="@drawable/transparent_progress"
+                android:thumb="@drawable/bet2" />
+
+            <SeekBar
+                android:id="@+id/imageViewBet3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="10dp"
+                android:layout_weight="1"
+                android:progress="10"
+                android:progressDrawable="@drawable/transparent_progress"
+                android:splitTrack="false"
+                android:thumb="@drawable/bet3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:fontFamily="@font/upheavtt"
+        android:id="@+id/countdownText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Start in 3"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        />
+
+</RelativeLayout>
