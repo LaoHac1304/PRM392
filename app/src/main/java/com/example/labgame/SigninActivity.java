@@ -23,9 +23,7 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
-
         bindingData();
-
         btnSubmit.setOnClickListener(this);
         btnHome.setOnClickListener(this);
 
@@ -37,31 +35,45 @@ public class SigninActivity extends AppCompatActivity implements View.OnClickLis
         if (view.getId() == R.id.btnSignIn){
 
             String password = etPassword.getText().toString();
-            if (authenticate("", password)){
+            Account account = null;
+            account = authenticate("", password);
+            if (account != null){
+                GlobalClass globalInstance = GlobalClass.getInstance();
+                globalInstance.currentUser = account;
                 Toast.makeText(this, "Login successfully", Toast.LENGTH_LONG).show();
+                betForm();
             }
-            else
+            else{
                 incorrectPassword.setText("Password is incorrect ! Please try again.");
                 Toast.makeText(this, "Login failed", Toast.LENGTH_LONG).show();
-            return;
+            }
         }
-        homeForm();
+        else
+            if (view.getId() == R.id.btnHome){
+                homeForm();
+            }
+
     }
 
+    private void betForm(){
+        Intent intent = new Intent(this, BetActivity.class);
+        startActivity(intent);
+        //finish();
+    }
     private void homeForm(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
-    private boolean authenticate(String username, String password){
+    private Account authenticate(String username, String password){
         Intent intent = getIntent();
         Account account = (Account) intent.getSerializableExtra("SelectedAccount");
         username = account.getName();
 
         if (username.equals(account.getName())
-                && account.getPassword().equals(password)) return true;
-        return false;
+                && account.getPassword().equals(password)) return account;
+        return null;
     }
 
     private void bindingData(){

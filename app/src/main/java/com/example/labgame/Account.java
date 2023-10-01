@@ -9,6 +9,10 @@ public class Account implements Serializable{
     private String password;
     private int coin;
 
+    public Account(){
+
+    }
+
     public Account(String name, String password,int coin ) {
         this.name = name;
         this.password = password;
