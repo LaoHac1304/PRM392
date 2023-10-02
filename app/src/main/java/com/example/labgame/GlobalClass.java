@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class GlobalClass {
 
-    public static ArrayList<Account> accountArrayList;
-    public static Account currentUser;
+    public ArrayList<Account> accountArrayList;
+    public Account currentUser;
     private static GlobalClass instance;
 
     private GlobalClass() {

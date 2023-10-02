@@ -3,6 +3,7 @@ package com.example.labgame;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,7 +23,6 @@ public class MainActivity extends Activity {
     ListView lv_1;
     Button btnCreateNewAccount ;
 
-    ArrayList<Account> accountArrayList = new ArrayList<>();
     public static AccountAdapter accountAdapter;
 
     private static final int REQUEST_CODE_SIGNUP = 1;
@@ -39,11 +39,17 @@ public class MainActivity extends Activity {
         accountAdapter = new AccountAdapter(this, R.layout.activity_account, accountsGlobal);
         lv_1.setAdapter(accountAdapter);
 
+
+        ThemeSong song = ThemeSong.getInstance(MainActivity.this);
+
+        song.create();
+        song.start(true);
+
         lv_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Chuyển sang một giao diện mới (Activity khác) khi người dùng click vào mục
-                Account selectedAccount = accountArrayList.get(position);
+                Account selectedAccount = accountsGlobal.get(position);
                 Intent intent = new Intent(MainActivity.this, SigninActivity.class);
                 intent.putExtra("SelectedAccount", (Serializable) selectedAccount);
                 startActivity(intent);
@@ -72,8 +78,8 @@ public class MainActivity extends Activity {
         if (requestCode == REQUEST_CODE_SIGNUP && resultCode == RESULT_OK) {
             if (data != null) {
                 ArrayList<Account> updatedAccountList = (ArrayList<Account>) data.getSerializableExtra("ListAccount");
-                accountArrayList.clear();
-                accountArrayList.addAll(updatedAccountList);
+                accountsGlobal.clear();
+                accountsGlobal.addAll(updatedAccountList);
                 accountAdapter.notifyDataSetChanged();
             }
         }

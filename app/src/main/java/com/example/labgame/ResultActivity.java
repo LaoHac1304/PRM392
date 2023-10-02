@@ -20,12 +20,22 @@ public class ResultActivity extends AppCompatActivity {
     int coin;
     int reward;
     int lose;
+
+    GlobalClass globalClass;
+    Account currentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        globalClass = GlobalClass.getInstance();
+        currentUser = globalClass.currentUser;
+
+        int bet1 = currentUser.getBet1();
+        int bet2 = currentUser.getBet2();
+        int bet3 = currentUser.getBet3();
+
         setContentView(R.layout.activity_result);
         mapping();
-        coin = 90;
+        coin = currentUser.getCoin();
         reward = 10;
         lose = 80;
         total = coin - lose + reward;
