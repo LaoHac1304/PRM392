@@ -21,13 +21,16 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnHome;
     private ArrayList<Account> accountArrayList;
 
+    private TextView txtErrorName;
+    private TextView txtErrorPass;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         bindingData();
 
-        // Get the account list from the intent extras and make a copy
         accountArrayList = new ArrayList<>();
         ArrayList<Account> originalAccountList = (ArrayList<Account>)
                 getIntent().getSerializableExtra("ListAccount");
@@ -44,28 +47,40 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         if (view.getId() == R.id.btnSignIn){
             register();
         }
+        else{
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void register() {
         String username = etName.getText().toString();
         String password = etPassword.getText().toString();
 
-        // Check if the username already exists
+        if (username.isEmpty() || password.isEmpty()) {
+            if (username.isEmpty()) txtErrorName.setText("Name can't be empty!!!");
+            if (password.isEmpty()) txtErrorPass.setText("Password can't be empty!!!");
+            return;
+        }
+
         for (Account account : accountArrayList) {
             if (account.getName().equals(username)) {
-                Toast.makeText(this, "Failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Account was existed", Toast.LENGTH_LONG).show();
                 return;
             }
         }
 
-        // Create a new account
         Account account = new Account(username, password, 100);
         accountArrayList.add(account);
-        // Return the updated account list to MainActivity
+
+        GlobalClass globalInstance = GlobalClass.getInstance();
+        ArrayList<Account> accountsGlobal = globalInstance.accountArrayList;
+        accountsGlobal.add(account);
+
         Intent resultIntent = new Intent();
         resultIntent.putExtra("ListAccount", accountArrayList);
         setResult(RESULT_OK, resultIntent);
-        finish(); // Finish SignupActivity
+        finish();
     }
 
     @Override
@@ -74,6 +89,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void bindingData() {
+        txtErrorName = findViewById(R.id.txtNameError);
+        txtErrorPass = findViewById(R.id.txtPassError);
         etName = findViewById(R.id.etName);
         etPassword = findViewById(R.id.etPassword);
         btnSubmit = findViewById(R.id.btnSignIn);

@@ -34,7 +34,9 @@ public class MainActivity extends Activity {
 
         lv_1 = findViewById(R.id.listView_1);
         bindingData();
-        accountAdapter = new AccountAdapter(this, R.layout.activity_account, accountArrayList);
+        GlobalClass globalInstance = GlobalClass.getInstance();
+        ArrayList<Account> accountsGlobal = globalInstance.accountArrayList;
+        accountAdapter = new AccountAdapter(this, R.layout.activity_account, accountsGlobal);
         lv_1.setAdapter(accountAdapter);
 
         lv_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -54,7 +56,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SignupActivity.class);
-                intent.putExtra("ListAccount", (Serializable) accountArrayList);
+                ArrayList<Account> accountsGlobal = getGlobalAccount();
+                intent.putExtra("ListAccount", (Serializable) accountsGlobal);
                 startActivityForResult(intent, REQUEST_CODE_SIGNUP); // Start SignupActivity with requestCode
             }
         });
@@ -65,6 +68,7 @@ public class MainActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        ArrayList<Account> accountsGlobal = getGlobalAccount();
         if (requestCode == REQUEST_CODE_SIGNUP && resultCode == RESULT_OK) {
             if (data != null) {
                 ArrayList<Account> updatedAccountList = (ArrayList<Account>) data.getSerializableExtra("ListAccount");
@@ -75,11 +79,13 @@ public class MainActivity extends Activity {
         }
     }
 
+    private ArrayList<Account> getGlobalAccount(){
+        GlobalClass globalInstance = GlobalClass.getInstance();
+        ArrayList<Account> accountsGlobal = globalInstance.accountArrayList;
+        return accountsGlobal;
+    }
+
     private void bindingData() {
-        accountArrayList = new ArrayList<>();
-        accountArrayList.add(new Account("Jun", "123456", 100));
-        accountArrayList.add(new Account("Alex", "888888", 150));
-        accountArrayList.add(new Account("Chip", "162534", 200));
-        accountArrayList.add(new Account("XXXX", "162534", 200));
+
     }
 }
