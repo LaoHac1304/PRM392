@@ -1,7 +1,9 @@
 package com.example.labgame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -46,20 +48,30 @@ public class RaceActivity extends AppCompatActivity {
         if (a > b) return b;
         return a;
     }
+
+    private void moveToResultActivity(int id) {
+        Intent intent = new Intent(RaceActivity.this, ResultActivity.class);
+        intent.putExtra("winner", id);
+        startActivity(intent);
+    }
+
     private void plusBet(int id) {
         plus = new Random().nextInt(4);
         switch (id) {
             case 1:
                 bet1 = getMin(bet1 + plus, MAX);
                 imgvBet1.setProgress(bet1, true);
+                if (bet1 == MAX) moveToResultActivity(1);
                 break;
             case 2:
                 bet2 = getMin(bet2 + plus, MAX);
                 imgvBet2.setProgress(bet2, true);
+                if (bet2 == MAX) moveToResultActivity(2);
                 break;
             case 3:
                 bet3 = getMin(bet3 + plus, MAX);
                 imgvBet3.setProgress(bet3, true);
+                if (bet3 == MAX) moveToResultActivity(3);
                 break;
         }
     }
@@ -70,18 +82,6 @@ public class RaceActivity extends AppCompatActivity {
                 if (bet1 < MAX && bet2 < MAX && bet3 < MAX) plusBet(1);
                 if (bet1 < MAX && bet2 < MAX && bet3 < MAX) plusBet(2);
                 if (bet1 < MAX && bet2 < MAX && bet3 < MAX) plusBet(3);
-                if (bet1 == MAX) {
-                    tvCoin.setText("The winner is number " + 1);
-                    // Move to result activity;
-                }
-                if (bet2 == MAX) {
-                    tvCoin.setText("The winner is number " + 2);
-                    // Move to result activity;
-                }
-                if (bet3 == MAX) {
-                    tvCoin.setText("The winner is number " + 3);
-                    // Move to result activity;
-                }
             }
             public void onFinish(){
             }
