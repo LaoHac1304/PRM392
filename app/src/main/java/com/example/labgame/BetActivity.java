@@ -85,5 +85,14 @@ public class BetActivity extends AppCompatActivity {
                 }
             }
         });
+        btnBack.setOnClickListener(view -> {
+            Intent intent = new Intent(BetActivity.this, MainActivity.class);
+            globalClass.accountArrayList.replaceAll(account -> {
+                if (account.getName().equals(globalClass.currentUser.getName()))
+                    account.setCoin(globalClass.currentUser.getCoin());
+                return account;
+            });
+            startActivity(intent);
+        });
     }
 }

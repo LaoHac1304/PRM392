@@ -24,6 +24,8 @@ public class RaceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_race);
 
         tvCoin = (TextView) findViewById(R.id.textViewCoin);
+        int coin = GlobalClass.getInstance().currentUser.getCoin();
+        tvCoin.setText("COINS: " + coin);
         txtCountdown = (TextView) findViewById(R.id.countdownText);
         imgvBet1 = (SeekBar) findViewById(R.id.imageViewBet1);
         imgvBet2 = (SeekBar) findViewById(R.id.imageViewBet2);
